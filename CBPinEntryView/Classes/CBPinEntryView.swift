@@ -91,6 +91,10 @@ public protocol CBPinEntryViewDelegate: class {
 
     public weak var delegate: CBPinEntryViewDelegate?
 
+    var pinEntryButtons: [UIButton] {
+        return entryButtons
+    }
+
     override public init(frame: CGRect) {
         super.init(frame: frame)
 
@@ -166,8 +170,8 @@ public protocol CBPinEntryViewDelegate: class {
         }
     }
 
-    private func updateButtonStyles() {
-        for button in entryButtons {
+    open func updateButtonStyles() {
+        for button in pinEntryButtons {
             button.backgroundColor = entryBackgroundColour
             button.setTitleColor(entryTextColour, for: .normal)
             button.titleLabel?.font = entryFont
